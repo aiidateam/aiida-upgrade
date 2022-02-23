@@ -9,6 +9,20 @@ readme = "README.md"
 license = {file = "LICENSE"}
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["version", "description"]
+dependencies = [
+    "click"
+]
 
 [project.urls]
 Home = "https://github.com/aiidateam/aiida-upgrade"
+
+[project.scripts]
+aiida-upgrade = "aiida_upgrade.__main__:main"
+
+[project.optional-dependencies]
+testing = [
+    "pytest",
+]
+
+[tool.isort]
+profile = "black"
