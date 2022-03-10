@@ -10,7 +10,8 @@ license = {file = "LICENSE"}
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["version", "description"]
 dependencies = [
-    "click"
+    "click",
+    "libcst"
 ]
 
 [project.urls]
@@ -20,7 +21,7 @@ Home = "https://github.com/aiidateam/aiida-upgrade"
 aiida-upgrade = "aiida_upgrade.__main__:main"
 
 [project.optional-dependencies]
-testing = [
+tests = [
     "pytest",
 ]
 

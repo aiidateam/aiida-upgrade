@@ -3,6 +3,7 @@ from pathlib import Path
 import libcst as cst
 
 from .entry_points import FactoryCoreTransformer, FullEntryPointTransformer
+from .methods import DictListNoKeywordTransformer
 
 
 def migrate_path(path: Path):
@@ -16,11 +17,9 @@ def migrate_path(path: Path):
         with path.open("r") as handle:
             cst_tree = cst.parse_module(handle.read())
 
-        factory_transformer = FactoryCoreTransformer()
-        cst_tree = cst_tree.visit(factory_transformer)
-
-        fullentry_transformer = FullEntryPointTransformer()
-        cst_tree = cst_tree.visit(fullentry_transformer)
+        cst_tree = cst_tree.visit(FactoryCoreTransformer())
+        cst_tree = cst_tree.visit(FullEntryPointTransformer())
+        cst_tree = cst_tree.visit(DictListNoKeywordTransformer())
 
         with path.open("w") as handle:
             handle.write(cst_tree.code)
