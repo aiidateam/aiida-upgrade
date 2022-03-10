@@ -100,7 +100,7 @@ class FactoryCoreTransformer(cst.CSTTransformer):
                             )
                         ]
                     )
-        except AttributeError:
+        except (AttributeError, TypeError):
             return original_node
 
         return original_node
