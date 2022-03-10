@@ -83,7 +83,9 @@ class FactoryCoreTransformer(cst.CSTTransformer):
 
             if function in FACTORY_MAPPING.keys():
 
-                entry_point = original_node.args[0].value.value.strip("'")
+                entry_point = original_node.args[0].value.value
+                string_quote = entry_point[0]
+                entry_point = entry_point.strip(string_quote)
 
                 if (
                     entry_point
@@ -93,7 +95,7 @@ class FactoryCoreTransformer(cst.CSTTransformer):
                         args=[
                             original_node.args[0].with_changes(
                                 value=original_node.args[0].value.with_changes(
-                                    value=f"'core.{entry_point}'"
+                                    value=f"{string_quote}core.{entry_point}{string_quote}"
                                 )
                             )
                         ]
@@ -118,11 +120,15 @@ class FullEntryPointTransformer(cst.CSTTransformer):
 
             option_string = "|".join(entry_points)
 
-            match = re.match(rf"'{entry_group}:({option_string})'", original_node.value)
+            match = re.match(
+                rf"(['|\"]){entry_group}:({option_string})[',\"]", original_node.value
+            )
 
             if match is not None:
+                string_quote = match.groups()[0]
+                entry_point = match.groups()[1]
                 return updated_node.with_changes(
-                    value=f"'{entry_group}:core.{match.groups()[0]}'"
+                    value=f"{string_quote}{entry_group}:core.{entry_point}{string_quote}"
                 )
 
         return original_node
