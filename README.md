@@ -32,10 +32,10 @@ In case `PATH` is a directory, `aiida-upgrade` will recursively update all `.py`
 
 Currently, `aiida-upgrade` performs the following code refactoring:
 
-* Look for deprecated `aiida-core` entry points loaded by plugin factories and add the `.core` prefix, see [the corresponding section in the plugin migration guide](https://github.com/aiidateam/aiida-core/wiki/AiiDA-2.0-plugin-migration-guide#entry-points).
+* Look for deprecated `aiida-core` entry points loaded by plugin factories and add the `core.` prefix, see [the corresponding section in the plugin migration guide](https://github.com/aiidateam/aiida-core/wiki/AiiDA-2.0-plugin-migration-guide#entry-points).
 * Similarly, find and correct full deprecated entry point strings e.g. `'aiida.data:structure'`.
 
-Migration steps that are not supported are:
+Migration steps that are not (yet) supported are:
 
 * Adding the `core.` prefix in shell scripts.
 * [Update `'name'` to `'label'` when querying for a `Computer` with the `QueryBuilder`](https://github.com/aiidateam/aiida-core/wiki/AiiDA-2.0-plugin-migration-guide#querybuilder).
