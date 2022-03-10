@@ -38,7 +38,7 @@ Currently, `aiida-upgrade` performs the following code refactoring:
 Migration steps that are not supported are:
 
 * Adding the `core.` prefix in shell scripts.
-* [Update `'name'` to `'label'` when querying for a `Computer` with the `QueryBuilder`.](https://github.com/aiidateam/aiida-core/wiki/AiiDA-2.0-plugin-migration-guide#querybuilder).
+* [Update `'name'` to `'label'` when querying for a `Computer` with the `QueryBuilder`](https://github.com/aiidateam/aiida-core/wiki/AiiDA-2.0-plugin-migration-guide#querybuilder).
 * Small changes in the API of [Transport](https://github.com/aiidateam/aiida-core/wiki/AiiDA-2.0-plugin-migration-guide#transport-plugins) and [Scheduler](https://github.com/aiidateam/aiida-core/wiki/AiiDA-2.0-plugin-migration-guide#schedulers) plugins.
 * [Removal of the `PluginTestCase` class.](https://github.com/aiidateam/aiida-core/wiki/AiiDA-2.0-plugin-migration-guide#unit-tests)
 
