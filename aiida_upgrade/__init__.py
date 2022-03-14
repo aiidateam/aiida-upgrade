@@ -1,3 +1,3 @@
-"""A tool to aide upgrades of plugins to new aiida-core versions."""
+"""A tool to perform upgrades of AiiDA plugins to new aiida-core versions."""
 
-__version__ = "0.0.2"
+__version__ = "0.1.0"

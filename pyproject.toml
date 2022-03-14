@@ -25,5 +25,10 @@ tests = [
     "pytest",
 ]
 
+[tool.flit.sdist]
+exclude = [
+    "tests/",
+]
+
 [tool.isort]
 profile = "black"
