@@ -1,4 +1,5 @@
 """Main entry-point for CLI."""
+
 import sys
 from pathlib import Path
 
