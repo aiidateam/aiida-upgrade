@@ -8,6 +8,7 @@
 # For further information please visit http://www.aiida.net               #
 ###########################################################################
 """Tests for the transformers for upgrading AiiDA entry points."""
+
 import libcst as cst
 import pytest
 
