@@ -8,6 +8,7 @@
 # For further information please visit http://www.aiida.net               #
 ###########################################################################
 """Transformers for upgrading AiiDA entry points."""
+
 import re
 
 import libcst as cst
